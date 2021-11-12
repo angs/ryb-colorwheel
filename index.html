@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml' lang='fi' >
+<head>
+<meta charset="UTF-8" />
+<title>RYB Color Wheel</title>
+<style type="text/css">
+body { background-color: black; }
+#cannedham { position: absolute; top: 0px; left: 0px;}
+#htmlui { position: absolute; top: 280px; left: 10px; }
+.group { display: block; }
+#rgbinfo, #debuginfo { color: white;  font-family: monospace; }
+#loader { font-family: monospace; }
+
+</style>
+<script type="text/javascript" src="ryb.js"></script>
+</head>
+<body onload="load()" onresize="resize()">
+<canvas id="cannedham" onmousemove="update(event)" onmousedown="mousedown(event)" onmouseup="mouseup(event)" onmouseout="mouseup(event)"></canvas>
+<div id="htmlui">
+<div class="group">
+<select id="rule" onchange="changeColorRule(); draw();">
+<option value="single">1 - Single Color</option>
+<option value="complement">2 - Complement</option>
+<option value="splitcomp" selected="selected">3 - Split Complement</option>
+<option value="triad">3 - Color Triad</option>
+<option value="right">3 - Right Angles</option>
+<option value="wideanalog">3 - Wide Analogous</option>
+<option value="analogous">3 - Analogous</option>
+<option value="tetrad">4 - Color Tetrad</option>
+<option value="doublecomp">4 - Double Complementary</option>
+<option value="narrowquad">4 - Narrow quad</option>
+<option value="hexagon">6 - Hexagon</option>
+<option value="decagon">10 - Decagon</option>
+<option value="hendecagon">11 - Hendecagon</option>
+<option value="dodecagon">12 - Dodecagon</option>
+</select>
+<select id="colormodel" onchange="changeColorModel()">
+<option value="ryb">RYB Paint</option>
+<option value="rgb2">RGB distort</option>
+<option value="ryb2">RYB&amp;Black</option>
+<option value="rgb">RGB</option>
+</select>
+</div>
+<p id="rgbinfo"></p>
+<p id="debuginfo"></p>
+<div class="group">
+<input id="loader" type="text" size="8" maxlength="8" />
+<button onclick="loader()">Load</button>
+</div>
+</div>
+</body>
+</html>
